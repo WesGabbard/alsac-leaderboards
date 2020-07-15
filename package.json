@@ -1,0 +1,29 @@
+{
+  "name": "alsac-leaderboards",
+  "version": "1.0.0",
+  "private": "true",
+  "scripts": {
+    "start": "next",
+    "serve": "next start",
+    "build": "next build && next export -o dist",
+    "lint": "brb lint"
+  },
+  "dependencies": {
+    "@zeit/next-css": "^1.0.1",
+    "axios": "^0.19.2",
+    "constructicon": "^2.8.0",
+    "fuse.js": "^3.4.6",
+    "lodash": "^4.17.15",
+    "minimal.css": "^1.0.1",
+    "next": "^9.1.4",
+    "parse-full-name": "^1.2.4",
+    "qs": "^6.9.4",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0",
+    "react-papaparse": "^3.3.0",
+    "supporticon": "^3.18.1"
+  },
+  "devDependencies": {
+    "boiler-room-builder": "^4.0.4"
+  }
+}

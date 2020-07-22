@@ -35,6 +35,6 @@ The development server will now be serving your app, and can be viewed at [http:
 Note that the development server will live re-load changes to your browser as you make changes to the codebase.
 
 ## Implementation notes
-Each page fetches a token and then the appropiate csv file using Luminate Server APIs (Next.js SSR is wrapped in getIntitalProps). The Leaderboard's Item component will then take the token and fetch either personal or team page photo to show as a avataar (event has no photo).
+Each page fetches a token and then the appropiate csv file using Luminate Server APIs (Next.js SSR is wrapped in getIntitalProps). TO use Luminate Server APIs, you will need a admin account that is in the API Adminstrators group as well as to make sure the IP address is added to the *Configure API to allow server access* in the Open API Configuration. The Leaderboard's Item component will then take the token and fetch either personal or team page photo to show as a avataar (event has no photo).
 
 

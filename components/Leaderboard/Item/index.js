@@ -13,7 +13,7 @@ const Item = ({
   const [status, setStatus] = useState('fetching')
 
   useEffect(() => {
-    const data = {
+    const params = {
       method: type === 'team' ? 'getTeamPhoto' : 'getPersonalPhotos',
       fr_id: props.FR_ID,
       cons_id: type === 'team' ? props.CAPTAIN_CONS_ID : props.CONS_ID,
@@ -25,7 +25,7 @@ const Item = ({
       .then(() => type !== 'event' &&
         client({
           url: 'CRTeamraiserAPI',
-          data: stringify(data)
+          data: stringify(params)
         })
       )
       .then(({ data }) => {
@@ -38,7 +38,7 @@ const Item = ({
       })
       .then(() => setStatus('fetched'))
       .catch(() => setStatus('failed'))
-  },[])
+  },[props])
 
   return (
     <LeaderboardItem

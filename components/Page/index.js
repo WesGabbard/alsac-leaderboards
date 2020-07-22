@@ -3,7 +3,12 @@ import Container from 'constructicon/container'
 import Links from '../Tabs'
 import PageContentStatus from '../PageContentStatus'
 
-const Page = ({ children, notFound, status, ...props }) => (
+const Page = ({
+  children,
+  notFound,
+  status,
+  ...props
+}) => (
   <PageContentStatus status={status} notFound={notFound}>
     <Container width={36}>
       <Links

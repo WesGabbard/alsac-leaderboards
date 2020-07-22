@@ -6,14 +6,15 @@ import Head from 'next/head'
 import Leaderboard from '../../components/Leaderboard'
 import Page from '../../components/Page'
 
-const Fundraisers = ({ fundraisers, ...props }) => {
-  const [individuals, setIndividuals] = useState([])
+
+const Teams = ({ allTeams, ...props }) => {
+  const [teams, setTeams] = useState([])
   const [status, setStatus] = useState('fetching')
   useEffect(() => {
     Promise.resolve()
-      .then(() => readString(fundraisers,
+      .then(() => readString(allTeams,
         { header: true }))
-      .then(({ data }) => setIndividuals(data))
+      .then(({ data }) => setTeams(data))
       .then(() => setStatus('fetched'))
       .catch(error => {
         console.error(error)
@@ -24,14 +25,14 @@ const Fundraisers = ({ fundraisers, ...props }) => {
   return (
     <Fragment>
       <Head>
-        <title>ALSAC Heroes Fundraiser Leaderboard</title>
+        <title>ALSAC Heroes Team Leaderboard</title>
       </Head>
       <Page status={status} {...props}>
         {status === 'fetched' && (
           <Leaderboard
-            data={individuals}
-            type='participant'
-            {...props}
+            data={teams}
+            type='team'
+            { ...props }
           />
         )}
       </Page>
@@ -39,7 +40,7 @@ const Fundraisers = ({ fundraisers, ...props }) => {
   )
 }
 
-Fundraisers.getInitialProps = async (ctx) => {
+Teams.getInitialProps = async (ctx) => {
   let login = await client({
     url: '/SRConsAPI',
     data: stringify(loginParams())
@@ -47,14 +48,14 @@ Fundraisers.getInitialProps = async (ctx) => {
 
   let token = await login.data.loginResponse.token
 
-  let fundraisersResponse = await client({
+  let teamsResponse = await client({
     url: '/SRContentAPI',
-    data: stringify(csvParams('participants'))
+    data: stringify(csvParams('teams'))
   })
 
-  let fundraisers = await fundraisersResponse.data.getTagInfoResponse.preview
+  let allTeams = await teamsResponse.data.getTagInfoResponse.preview
 
-  return { fundraisers, token }
+  return { allTeams, token }
 }
 
-export default Fundraisers
+export default Teams

@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "@zeit/next-css": "^1.0.1",
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "constructicon": "^2.8.0",
     "fuse.js": "^3.4.6",
     "lodash": "^4.17.15",

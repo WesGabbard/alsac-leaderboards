@@ -13,7 +13,7 @@
     "axios": "^0.19.2",
     "constructicon": "^2.8.0",
     "fuse.js": "^3.4.6",
-    "lodash": "^4.17.15",
+    "lodash": "^4.17.21",
     "minimal.css": "^1.0.1",
     "next": "^9.1.4",
     "parse-full-name": "^1.2.4",
